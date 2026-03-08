@@ -1,265 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QualityPartsMarket – European CNC Machining & Precision Parts Marketplace</title>
+<title>QualityPartsMarket | European CNC Machining & Precision Parts Marketplace</title>
 
-<meta name="description" content="QualityPartsMarket connects buyers with reliable European manufacturers for CNC turning, CNC milling, grinding, heat treatment and precision parts production.">
+<meta name="description" content="QualityPartsMarket connects buyers with reliable European manufacturers for CNC machining, turning, milling, grinding and precision parts production.">
 
 <meta name="keywords" content="CNC machining marketplace, CNC turning Europe, CNC milling suppliers, precision parts manufacturers, European manufacturing network">
 
 <meta name="author" content="QualityPartsMarket">
 
-<link rel="canonical" href="https://ligone-token.github.io/qualitypartsmarket/">
-
 <meta name="robots" content="index, follow">
 
-<!-- Open Graph (LinkedIn / Social SEO) -->
+<link rel="canonical" href="https://ligone-token.github.io/QualityPartsMarket/">
+
+<!-- Open Graph -->
 
 <meta property="og:title" content="QualityPartsMarket – European Manufacturing Network">
-<meta property="og:description" content="Connect with verified European manufacturers for CNC machining and precision parts production.">
+<meta property="og:description" content="Connect with reliable European manufacturers for CNC machining and precision parts production.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ligone-token.github.io/qualitypartsmarket/">
-
-<meta property="og:image" content="https://ligone-token.github.io/qualitypartsmarket/images/hero.jpg">
+<meta property="og:url" content="https://ligone-token.github.io/QualityPartsMarket/">
+<meta property="og:image" content="https://ligone-token.github.io/QualityPartsMarket/images/hero.webp">
 
 <!-- Twitter -->
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="QualityPartsMarket">
-<meta name="twitter:description" content="European marketplace for CNC machining and precision parts production.">
+<meta name="twitter:description" content="European marketplace for CNC machining and precision parts manufacturing.">
 
+<!-- Structured Data -->
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "QualityPartsMarket",
+ "url": "https://ligone-token.github.io/QualityPartsMarket/",
+ "logo": "https://ligone-token.github.io/QualityPartsMarket/logo.png",
+ "description": "European marketplace connecting buyers with manufacturers for CNC machining and precision parts."
+}
+</script>
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
 margin:0;
-background:#f5f7fa;
-color:#1b2b3a;
+font-family:Arial,Helvetica,sans-serif;
+background:#f6f8fb;
+color:#1e2a36;
 }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
+/* HEADER */
+
+.header{
+height:70px;
 background:white;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+display:flex;
+align-items:center;
+padding:0 60px;
+box-shadow:0 1px 6px rgba(0,0,0,0.08);
 }
 
 .logo{
-font-size:22px;
-font-weight:bold;
+height:42px;
 }
 
+/* HERO */
+
 .hero{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(120deg,#0f2b46,#1f4e79);
-color:white;
+height:540px;
+
+background:
+linear-gradient(rgba(14,40,68,0.65),rgba(14,40,68,0.65)),
+url("images/hero.webp");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+}
+
+.hero-inner{
+width:620px;
+margin-left:120px;
 }
 
 .hero h1{
-font-size:42px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
+font-size:44px;
+line-height:1.25;
+color:white;
 margin-bottom:30px;
 }
 
-.btn{
-padding:14px 26px;
-border:none;
-border-radius:6px;
-font-size:16px;
-margin:10px;
-cursor:pointer;
+.buttons{
+display:flex;
+gap:18px;
 }
 
-.btn-primary{
-background:#d8a016;
+.btn-main{
+background:#d39b18;
 color:white;
+padding:14px 26px;
+border-radius:6px;
+font-weight:600;
+text-decoration:none;
 }
 
-.btn-secondary{
-background:white;
-color:#0f2b46;
+.btn-alt{
+background:#e7eaef;
+color:#1f2d3d;
+padding:14px 26px;
+border-radius:6px;
+font-weight:600;
+text-decoration:none;
 }
+
+/* SECTION */
 
 .section{
-padding:80px 20px;
+padding:80px 40px;
 text-align:center;
 }
 
-.steps{
+.section h2{
+font-size:32px;
+margin-bottom:40px;
+}
+
+/* CARDS */
+
+.cards{
 display:flex;
 justify-content:center;
-gap:40px;
 flex-wrap:wrap;
-margin-top:40px;
+gap:25px;
 }
 
-.step{
+.card{
 background:white;
-padding:30px;
+padding:28px;
 border-radius:10px;
 width:220px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+font-weight:600;
 }
 
-footer{
+/* FOOTER */
+
+.footer{
 background:#0f2b46;
 color:white;
-text-align:center;
 padding:40px;
-margin-top:60px;
-}
-.hero{
-height:520px;
-display:flex;
-align-items:center;
-padding-left:80px;
-color:white;
-
-background:
-linear-gradient(rgba(15,43,70,0.65),rgba(15,43,70,0.65)),
-url("images/hero.webp");
-
-background-size:cover;
-background-position:center;
-}
- .hero{
-height:520px;
-
-background:
-linear-gradient(rgba(15,43,70,0.65),rgba(15,43,70,0.65)),
-url("images/hero.webp");
-
-background-size:cover;
-background-position:center;
-
-display:flex;
-align-items:center;
+text-align:center;
 }
 
-.hero-container{
-max-width:650px;
-margin-left:120px;
-color:white;
-}
-
-.hero-container h1{
-font-size:40px;
-line-height:1.3;
-margin-bottom:30px;
-}
-
-.hero-buttons{
-display:flex;
-gap:16px;
-}
-
-.btn-primary{
-background:#d4a017;
-color:white;
-padding:14px 26px;
-border-radius:6px;
-font-weight:600;
-text-decoration:none;
-}
-
-.btn-secondary{
-background:#e6e8eb;
-color:#1d2d3c;
-padding:14px 26px;
-border-radius:6px;
-font-weight:600;
-text-decoration:none;
-}
-  
 </style>
+
 </head>
 
 <body>
 
-<header>
+<header class="header">
 
-<div class="logo">
-QualityPartsMarket
-</div>
-
-<div>
-<a href="#">Home</a>
-</div>
+<img src="logo.png" alt="QualityPartsMarket CNC machining marketplace logo" class="logo">
 
 </header>
 
+
 <section class="hero">
 
-<div class="hero-container">
+<div class="hero-inner">
 
 <h1>
-Connecting buyers with reliable European manufacturers
-for precision parts and industrial supply chains.
+Connecting buyers with reliable<br>
+European manufacturers for<br>
+precision parts and industrial supply chains
 </h1>
 
-<div class="hero-buttons">
+<div class="buttons">
 
-<a class="btn-primary">Request a Quote</a>
-<a class="btn-secondary">Become a Supplier</a>
+<a class="btn-main">Request a Quote</a>
+<a class="btn-alt">Become a Supplier</a>
 
 </div>
 
 </div>
 
 </section>
+
 
 <section class="section">
 
-<h2>How it works</h2>
+<h2>How the platform works</h2>
 
-<div class="steps">
+<div class="cards">
 
-<div class="step">
-Upload your drawing
-</div>
-
-<div class="step">
-Receive offers
-</div>
-
-<div class="step">
-Select supplier
-</div>
-
-<div class="step">
-Production & delivery
-</div>
+<div class="card">Upload your drawing</div>
+<div class="card">Receive offers from suppliers</div>
+<div class="card">Select the best manufacturer</div>
+<div class="card">Production and delivery</div>
 
 </div>
 
 </section>
+
 
 <section class="section">
 
-<h2>Quality over lowest price</h2>
+<h2>Manufacturing capabilities</h2>
 
-<p>
-Verified manufacturers • Reliable European supply chains • Transparent supplier ratings
-</p>
+<div class="cards">
+
+<div class="card">CNC Turning</div>
+<div class="card">CNC Milling</div>
+<div class="card">Grinding</div>
+<div class="card">Heat Treatment</div>
+<div class="card">Surface Finishing</div>
+
+</div>
 
 </section>
 
-<footer>
 
-QualityPartsMarket  
-European Manufacturing Network
+<footer class="footer">
+
+<p>QualityPartsMarket – European Manufacturing Network</p>
 
 </footer>
 
