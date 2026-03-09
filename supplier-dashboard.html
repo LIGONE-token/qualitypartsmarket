@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" href="style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 </head>
 
@@ -27,48 +27,6 @@
 <div id="rfqList"></div>
 
 </div>
-
-
-<script>
-
-const supabase = supabase.createClient(
-"DEINE_SUPABASE_URL",
-"DEIN_PUBLIC_KEY"
-)
-
-async function loadRFQs(){
-
-const { data, error } = await supabase
-.from("rfq")
-.select("*")
-.order("created_at",{ascending:false})
-
-const container = document.getElementById("rfqList")
-
-data.forEach(rfq =>{
-
-const div = document.createElement("div")
-
-div.innerHTML = `
-<h3>${rfq.company}</h3>
-<p>Material: ${rfq.material}</p>
-<p>Quantity: ${rfq.quantity}</p>
-
-<a href="offer.html?rfq=${rfq.id}" class="btn-main">
-Submit Offer
-</a>
-`
-
-container.appendChild(div)
-
-})
-
-}
-
-loadRFQs()
-
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
@@ -97,8 +55,8 @@ div.innerHTML = `
 <p><strong>Material:</strong> ${rfq.material}</p>
 <p><strong>Quantity:</strong> ${rfq.quantity}</p>
 
-<a href="offer.html?rfq=${rfq.id}" class="btn-main">
-Submit Offer
+<a href="rfq-detail.html?rfq=${rfq.id}" class="btn-main">
+View RFQ
 </a>
 `
 
@@ -111,5 +69,6 @@ container.appendChild(div)
 loadRFQs()
 
 </script>
+
 </body>
 </html>
