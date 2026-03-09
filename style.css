@@ -7,17 +7,22 @@ color:#1e2a36;
 
 /* HEADER */
 
+/* HEADER */
+
 .header{
+height:70px;
 background:#ffffff;
 display:flex;
 align-items:center;
-padding:10px 60px;
+padding:0 40px;
 box-shadow:0 1px 6px rgba(0,0,0,0.08);
+overflow:visible;
 }
 
 .logo{
 height:200px;
 width:auto;
+margin-top:-65px;
 display:block;
 }
 
@@ -195,13 +200,15 @@ opacity:0.8;
 @media (max-width:768px){
 
 .header{
-padding:6px 12px;
+height:60px;
+padding:0 10px;
 }
 
 .logo{
-height:120px;
+height:160px;
+margin-top:-50px;
 }
-
+  
 .hero{
 height:auto;
 padding:60px 20px;
@@ -219,12 +226,13 @@ line-height:1.35;
 
 .buttons{
 flex-direction:column;
-gap:12px;
+width:100%;
 }
 
 .btn-main,
 .btn-alt{
 width:100%;
+box-sizing:border-box;
 text-align:center;
 }
 
