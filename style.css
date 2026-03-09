@@ -7,6 +7,8 @@ color:#1e2a36;
 
 /* HEADER */
 
+/* HEADER */
+
 .header{
 background:#ffffff;
 display:flex;
@@ -168,6 +170,8 @@ padding:6px 6px;
 
 .logo{
 height:200px;
+}
+
 }
 
 .hero{
