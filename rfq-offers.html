@@ -49,6 +49,12 @@ const { data, error } = await supabaseClient
 .eq("rfq_id", rfqId)
 .order("price",{ascending:true})
 
+if(error){
+console.error(error)
+alert("Offers could not be loaded")
+return
+}
+
 const container = document.getElementById("offersList")
 
 data.forEach(offer =>{
