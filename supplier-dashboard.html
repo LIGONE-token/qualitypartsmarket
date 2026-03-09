@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Supplier Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+<img src="logo1.png" class="logo">
+</header>
+
 <div class="container">
 
 <h1>Available RFQs</h1>
@@ -5,3 +27,89 @@
 <div id="rfqList"></div>
 
 </div>
+
+
+<script>
+
+const supabase = supabase.createClient(
+"DEINE_SUPABASE_URL",
+"DEIN_PUBLIC_KEY"
+)
+
+async function loadRFQs(){
+
+const { data, error } = await supabase
+.from("rfq")
+.select("*")
+.order("created_at",{ascending:false})
+
+const container = document.getElementById("rfqList")
+
+data.forEach(rfq =>{
+
+const div = document.createElement("div")
+
+div.innerHTML = `
+<h3>${rfq.company}</h3>
+<p>Material: ${rfq.material}</p>
+<p>Quantity: ${rfq.quantity}</p>
+
+<a href="offer.html?rfq=${rfq.id}" class="btn-main">
+Submit Offer
+</a>
+`
+
+container.appendChild(div)
+
+})
+
+}
+
+loadRFQs()
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const supabaseClient = supabase.createClient(
+"https://hwpeegcsdgxgcybuosfv.supabase.co",
+"sb_publishable_LhuHoUS_DR4o2Pp3aqbNBw_IXwHo2fD"
+)
+
+async function loadRFQs(){
+
+const { data, error } = await supabaseClient
+.from("rfq")
+.select("*")
+.order("created_at",{ascending:false})
+
+const container = document.getElementById("rfqList")
+
+data.forEach(rfq =>{
+
+const div = document.createElement("div")
+
+div.className = "card"
+
+div.innerHTML = `
+<h3>${rfq.company}</h3>
+<p><strong>Material:</strong> ${rfq.material}</p>
+<p><strong>Quantity:</strong> ${rfq.quantity}</p>
+
+<a href="offer.html?rfq=${rfq.id}" class="btn-main">
+Submit Offer
+</a>
+`
+
+container.appendChild(div)
+
+})
+
+}
+
+loadRFQs()
+
+</script>
+</body>
+</html>
