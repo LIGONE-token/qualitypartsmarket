@@ -63,6 +63,12 @@ const { data, error } = await supabaseClient
 .eq("id", rfqId)
 .single()
 
+if(error){
+console.error(error)
+alert("RFQ could not be loaded")
+return
+}
+
 const container = document.getElementById("rfqData")
 
 container.innerHTML = `
@@ -94,6 +100,7 @@ message: document.getElementById("message").value
 }])
 
 alert("Offer submitted successfully")
+window.location.href = "supplier-dashboard.html"
 
 })
 
