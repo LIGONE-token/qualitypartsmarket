@@ -25,31 +25,23 @@
 <form action="https://formsubmit.co/rene.herrchen@gmail.com" method="POST">
 
 <label>Company Name</label>
-<input type="text" required>
-
-<label>Country</label>
-<input type="text" required>
+<input type="text" name="company" required>
 
 <label>Email</label>
-<input type="email" required>
+<input type="email" name="email" required>
 
-<label>Main Manufacturing Process</label>
-<select>
-<option>CNC Turning</option>
-<option>CNC Milling</option>
-<option>Grinding</option>
-<option>Heat Treatment</option>
-<option>Surface Finishing</option>
-<option>Assembly</option>
-</select>
+<label>Machines</label>
+<textarea name="machines"></textarea>
 
 <label>Materials</label>
-<input type="text" placeholder="Steel, Stainless Steel, Aluminium">
+<input type="text" name="materials">
 
-<label>Additional Information</label>
-<textarea></textarea>
+<label>Certificates</label>
+<input type="text" name="certificates">
 
 <button type="submit">Register as Supplier</button>
+
+<input type="hidden" name="_captcha" value="false">
 
 </form>
 
