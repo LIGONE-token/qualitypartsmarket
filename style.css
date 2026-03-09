@@ -7,18 +7,24 @@ color:#1e2a36;
 
 /* HEADER */
 
+/* HEADER */
+
 .header{
+height:70px;
 background:#ffffff;
 display:flex;
 align-items:center;
-padding:10px 60px;
+padding:0 60px;
 box-shadow:0 1px 6px rgba(0,0,0,0.08);
+position:relative;
 }
 
 .logo{
 height:200px;
 width:auto;
-display:block;
+position:absolute;
+top:50%;
+transform:translateY(-50%);
 }
 
 /* HERO */
@@ -196,11 +202,16 @@ opacity:0.8;
 @media (max-width:768px){
 
 .header{
-padding:10px 15px;
+height:60px;
+padding:0 20px;
 }
 
 .logo{
 height:200px;
+top:50%;
+transform:translateY(-50%);
+}
+
 }
 
 .hero{
