@@ -1,11 +1,13 @@
+*{
+box-sizing:border-box;
+}
+
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
 background:#f6f8fb;
 color:#1e2a36;
 }
-
-/* HEADER */
 
 /* HEADER */
 
@@ -235,9 +237,10 @@ align-items:stretch;
 
 .btn-main,
 .btn-alt{
+width:100%;
 max-width:100%;
-width:auto;
 box-sizing:border-box;
+text-align:center;
 }
 
 .section{
