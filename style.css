@@ -8,19 +8,16 @@ color:#1e2a36;
 /* HEADER */
 
 .header{
-height:90px;
 background:#ffffff;
 display:flex;
 align-items:center;
-padding:0 60px;
+padding:10px 60px;
 box-shadow:0 1px 6px rgba(0,0,0,0.08);
-overflow:visible;
 }
 
 .logo{
 height:200px;
 width:auto;
-margin-top:-55px;
 display:block;
 }
 
@@ -54,30 +51,32 @@ margin-bottom:30px;
 .buttons{
 display:flex;
 gap:18px;
+flex-wrap:wrap;
+}
+
+.btn-main,
+.btn-alt{
+padding:14px 26px;
+border-radius:6px;
+font-weight:600;
+text-decoration:none;
+display:inline-block;
 }
 
 .btn-main{
 background:#d39b18;
 color:white;
-padding:14px 26px;
-border-radius:6px;
-font-weight:600;
-text-decoration:none;
 }
 
 .btn-alt{
 background:#e7eaef;
 color:#1f2d3d;
-padding:14px 26px;
-border-radius:6px;
-font-weight:600;
-text-decoration:none;
 }
 
 /* SECTION */
 
 .section{
-padding:80px 40px;
+padding:60px 40px;
 text-align:center;
 }
 
@@ -108,9 +107,9 @@ font-weight:600;
 
 .container{
 max-width:900px;
-margin:80px auto;
+margin:60px auto;
 background:white;
-padding:50px;
+padding:40px;
 border-radius:10px;
 box-shadow:0 2px 12px rgba(0,0,0,0.08);
 }
@@ -160,8 +159,8 @@ opacity:0.9;
 .footer{
 background:#0f2b46;
 color:white;
-padding:50px 40px;
-margin-top:80px;
+padding:40px 40px;
+margin-top:60px;
 }
 
 .footer-container{
@@ -170,23 +169,23 @@ justify-content:space-between;
 flex-wrap:wrap;
 max-width:1200px;
 margin:auto;
-gap:40px;
+gap:30px;
 }
 
 .footer-col{
-min-width:180px;
+min-width:160px;
 }
 
 .footer-col a{
 display:block;
 color:#d8e1ea;
 text-decoration:none;
-margin-bottom:8px;
+margin-bottom:6px;
 }
 
 .footer-bottom{
 text-align:center;
-margin-top:40px;
+margin-top:30px;
 font-size:14px;
 opacity:0.8;
 }
@@ -196,13 +195,11 @@ opacity:0.8;
 @media (max-width:768px){
 
 .header{
-padding:6px 6px;
-height:90px;
+padding:6px 12px;
 }
 
 .logo{
-height:200px;
-margin-top:-55px;
+height:120px;
 }
 
 .hero{
@@ -225,8 +222,14 @@ flex-direction:column;
 gap:12px;
 }
 
+.btn-main,
+.btn-alt{
+width:100%;
+text-align:center;
+}
+
 .section{
-padding:50px 20px;
+padding:40px 20px;
 }
 
 .cards{
@@ -240,17 +243,17 @@ max-width:320px;
 }
 
 .container{
-margin:40px 20px;
+margin:30px 20px;
 padding:30px;
 }
 
 .footer-container{
 flex-direction:column;
-gap:25px;
+gap:20px;
 }
 
 .footer{
-padding:40px 20px;
+padding:30px 20px;
 }
 
 }
