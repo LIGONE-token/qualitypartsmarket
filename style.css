@@ -272,3 +272,18 @@ padding:30px 20px;
 }
 
 }
+.card{
+background:white;
+padding:28px;
+border-radius:10px;
+width:220px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+font-weight:600;
+text-decoration:none;
+color:#1e2a36;
+display:block;
+}
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
