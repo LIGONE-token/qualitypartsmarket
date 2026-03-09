@@ -56,7 +56,10 @@ return
 }
 
 const container = document.getElementById("offersList")
-
+if(data.length === 0){
+container.innerHTML = "<p>No offers yet.</p>"
+return
+}
 data.forEach(offer =>{
 
 const div = document.createElement("div")
