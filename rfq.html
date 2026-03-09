@@ -124,5 +124,48 @@ alert("RFQ submitted successfully")
 </p>
 
 </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const supabaseClient = supabase.createClient(
+"https://hwpeegcsdgxgcybuosfv.supabase.co",
+"sb_publishable_LhuHoUS_DR4o2Pp3aqbNBw_IXwHo2fD"
+)
+
+document.getElementById("rfqForm").addEventListener("submit", async (e)=>{
+
+e.preventDefault()
+
+const file = document.getElementById("drawing").files[0]
+
+let path = ""
+
+if(file){
+
+const upload = await supabaseClient.storage
+.from("drawings")
+.upload(Date.now()+"_"+file.name,file)
+
+path = upload.data.path
+
+}
+
+await supabaseClient.from("rfq").insert([{
+
+company:document.getElementById("company").value,
+email:document.getElementById("email").value,
+material:document.getElementById("material").value,
+quantity:document.getElementById("quantity").value,
+message:document.getElementById("message").value,
+drawing_url:path
+
+}])
+
+alert("RFQ submitted successfully")
+
+})
+
+</script>
 </body>
 </html>
