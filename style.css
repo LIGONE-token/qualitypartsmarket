@@ -7,17 +7,22 @@ color:#1e2a36;
 
 /* HEADER */
 
+/* HEADER */
+
 .header{
+height:90px;
 background:#ffffff;
 display:flex;
 align-items:center;
-padding:10px 60px;
+padding:0 60px;
 box-shadow:0 1px 6px rgba(0,0,0,0.08);
+overflow:visible;
 }
 
 .logo{
 height:200px;
 width:auto;
+margin-top:-55px;
 display:block;
 }
 
