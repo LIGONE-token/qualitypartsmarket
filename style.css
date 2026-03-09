@@ -230,13 +230,13 @@ line-height:1.35;
 .buttons{
 flex-direction:column;
 gap:12px;
-width:100%;
+align-items:flex-start;
 }
 
 .btn-main,
 .btn-alt{
-width:100%;
-text-align:center;
+max-width:100%;
+width:auto;
 box-sizing:border-box;
 }
 
