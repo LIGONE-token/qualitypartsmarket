@@ -230,7 +230,7 @@ line-height:1.35;
 .buttons{
 flex-direction:column;
 gap:12px;
-align-items:flex-start;
+align-items:stretch;
 }
 
 .btn-main,
