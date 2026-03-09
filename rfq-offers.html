@@ -36,6 +36,10 @@ const supabaseClient = supabase.createClient(
 
 const urlParams = new URLSearchParams(window.location.search)
 const rfqId = urlParams.get("rfq")
+  if(!rfqId){
+alert("RFQ not found")
+window.location.href="index.html"
+}
 
 async function loadOffers(){
 
