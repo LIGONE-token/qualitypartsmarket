@@ -11,15 +11,13 @@ color:#1e2a36;
 background:#ffffff;
 display:flex;
 align-items:center;
-padding:0 60px;
+padding:10px 60px;
 box-shadow:0 1px 6px rgba(0,0,0,0.08);
-overflow:visible;
 }
 
 .logo{
 height:200px;
 width:auto;
-margin-top:-55px;
 display:block;
 }
 
@@ -197,17 +195,13 @@ opacity:0.8;
 @media (max-width:768px){
 
 .header{
-height:70px;
-padding:0 15px;
+padding:10px 15px;
 }
 
 .logo{
-height:140px;
-margin-top:-35px;
+height:200px;
 }
 
-}
-  
 .hero{
 height:auto;
 padding:60px 20px;
@@ -225,14 +219,7 @@ line-height:1.35;
 
 .buttons{
 flex-direction:column;
-width:100%;
-}
-
-.btn-main,
-.btn-alt{
-width:100%;
-box-sizing:border-box;
-text-align:center;
+align-items:flex-start;
 }
 
 .section{
