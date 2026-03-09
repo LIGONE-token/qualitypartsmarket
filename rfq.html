@@ -21,24 +21,29 @@
 
 <h1>Request a Quote</h1>
 
-<form action="https://formsubmit.co/rene.herrchen@gmail.com" method="POST">
+<form action="https://formsubmit.co/rene.herrchen@gmail.com" method="POST" enctype="multipart/form-data">
 
 <label>Company Name</label>
-<input type="text" required>
+<input type="text" name="company" required>
 
 <label>Email</label>
-<input type="email" required>
+<input type="email" name="email" required>
 
 <label>Material</label>
-<input type="text">
+<input type="text" name="material">
 
 <label>Quantity</label>
-<input type="number">
+<input type="number" name="quantity">
+
+<label>Upload Drawing</label>
+<input type="file" name="drawing">
 
 <label>Message</label>
-<textarea></textarea>
+<textarea name="message"></textarea>
 
-<button type="submit">Send Request</button>
+<button type="submit">Send RFQ</button>
+
+<input type="hidden" name="_captcha" value="false">
 
 </form>
 
