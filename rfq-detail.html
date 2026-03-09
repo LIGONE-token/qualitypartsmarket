@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RFQ Details</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+<img src="logo1.png" class="logo">
+</header>
+
+<div class="container">
+
+<h1>RFQ Details</h1>
+
+<div id="rfqData"></div>
+
+<h2>Submit Offer</h2>
+
+<form id="offerForm">
+
+<label>Price</label>
+<input type="number" id="price" required>
+
+<label>Delivery Days</label>
+<input type="number" id="delivery" required>
+
+<label>Message</label>
+<textarea id="message"></textarea>
+
+<button type="submit">Submit Offer</button>
+
+</form>
+
+</div>
+
+<script>
+
+const supabaseClient = supabase.createClient(
+"https://hwpeegcsdgxgcybuosfv.supabase.co",
+"sb_publishable_LhuHoUS_DR4o2Pp3aqbNBw_IXwHo2fD"
+)
+
+const urlParams = new URLSearchParams(window.location.search)
+const rfqId = urlParams.get("rfq")
+
+async function loadRFQ(){
+
+const { data } = await supabaseClient
+.from("rfq")
+.select("*")
+.eq("id", rfqId)
+.single()
+
+const container = document.getElementById("rfqData")
+
+container.innerHTML = `
+<p><strong>Company:</strong> ${data.company}</p>
+<p><strong>Material:</strong> ${data.material}</p>
+<p><strong>Quantity:</strong> ${data.quantity}</p>
+<p><strong>Message:</strong> ${data.message}</p>
+
+<a href="https://hwpeegcsdgxgcybuosfv.supabase.co/storage/v1/object/public/drawings/${data.drawing_url}" target="_blank">
+Download Drawing
+</a>
+`
+
+}
+
+loadRFQ()
+
+document.getElementById("offerForm").addEventListener("submit", async (e)=>{
+
+e.preventDefault()
+
+await supabaseClient.from("offers").insert([{
+
+rfq_id: rfqId,
+price: document.getElementById("price").value,
+delivery_days: document.getElementById("delivery").value,
+message: document.getElementById("message").value
+
+}])
+
+alert("Offer submitted")
+
+})
+
+</script>
+
+</body>
+</html>
