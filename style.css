@@ -61,6 +61,7 @@ border-radius:6px;
 font-weight:600;
 text-decoration:none;
 display:inline-block;
+width:auto;
 }
 
 .btn-main{
@@ -219,7 +220,7 @@ line-height:1.35;
 
 .buttons{
 flex-direction:column;
-align-items:flex-start;
+gap:12px;
 }
 
 .section{
