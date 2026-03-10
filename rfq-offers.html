@@ -73,9 +73,11 @@ div.innerHTML = `
 <p><strong>Delivery:</strong> ${offer.delivery_days} days</p>
 
 <p>${offer.message || ""}</p>
-`<button class="btn-main" onclick="acceptOffer('${offer.id}')">
+
+<button class="btn-main" onclick="acceptOffer('${offer.id}')">
 Accept Offer
 </button>
+`
 
 container.appendChild(div)
 
@@ -84,7 +86,21 @@ container.appendChild(div)
 }
 
 loadOffers()
+async function acceptOffer(offerId){
 
+await supabaseClient
+.from("rfq")
+.update({
+awarded_offer: offerId,
+status: "awarded"
+})
+.eq("id", rfqId)
+
+alert("Supplier selected successfully")
+
+window.location.href = "buyer-dashboard.html"
+
+}
 </script>
 
 </body>
