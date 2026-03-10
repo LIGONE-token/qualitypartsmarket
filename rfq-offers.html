@@ -73,7 +73,9 @@ div.innerHTML = `
 <p><strong>Delivery:</strong> ${offer.delivery_days} days</p>
 
 <p>${offer.message || ""}</p>
-`
+`<button class="btn-main" onclick="acceptOffer('${offer.id}')">
+Accept Offer
+</button>
 
 container.appendChild(div)
 
