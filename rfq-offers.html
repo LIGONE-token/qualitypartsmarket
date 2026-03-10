@@ -27,6 +27,7 @@
 <div id="offersList"></div>
 
 </div>
+
 <script>
 
 const supabaseClient = supabase.createClient(
@@ -36,12 +37,16 @@ const supabaseClient = supabase.createClient(
 
 const urlParams = new URLSearchParams(window.location.search)
 const rfqId = urlParams.get("rfq")
-  if(!rfqId){
+
+if(!rfqId){
 alert("RFQ not found")
-window.location.href="index.html"
+window.location.href = "index.html"
 }
 
 async function loadOffers(){
+
+const container = document.getElementById("offersList")
+container.innerHTML = ""
 
 const { data, error } = await supabaseClient
 .from("offers")
@@ -51,19 +56,18 @@ const { data, error } = await supabaseClient
 
 if(error){
 console.error(error)
-alert("Offers could not be loaded")
+container.innerHTML = "<p>Offers could not be loaded.</p>"
 return
 }
 
-const container = document.getElementById("offersList")
-if(data.length === 0){
+if(!data || data.length === 0){
 container.innerHTML = "<p>No offers yet.</p>"
 return
 }
+
 data.forEach(offer =>{
 
 const div = document.createElement("div")
-
 div.className = "card"
 
 div.innerHTML = `
@@ -85,10 +89,9 @@ container.appendChild(div)
 
 }
 
-loadOffers()
 async function acceptOffer(offerId){
 
-await supabaseClient
+const { error } = await supabaseClient
 .from("rfq")
 .update({
 awarded_offer: offerId,
@@ -96,11 +99,20 @@ status: "awarded"
 })
 .eq("id", rfqId)
 
+if(error){
+console.error(error)
+alert("Could not accept offer")
+return
+}
+
 alert("Supplier selected successfully")
 
 window.location.href = "buyer-dashboard.html"
 
 }
+
+loadOffers()
+
 </script>
 
 </body>
