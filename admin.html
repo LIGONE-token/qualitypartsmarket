@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | QualityPartsMarket</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f8;
+margin:40px;
+}
+
+h1{
+margin-bottom:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-bottom:50px;
+background:white;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:left;
+}
+
+th{
+background:#2c3e50;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<h2>RFQ Requests</h2>
+
+<table id="rfqTable">
+
+<thead>
+<tr>
+<th>Company</th>
+<th>Email</th>
+<th>Material</th>
+<th>Quantity</th>
+<th>Drawing</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+
+<h2>Suppliers</h2>
+
+<table id="supplierTable">
+
+<thead>
+<tr>
+<th>Company</th>
+<th>Email</th>
+<th>Machines</th>
+<th>Materials</th>
+<th>Certificates</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const { createClient } = supabase
+
+const supabaseClient = createClient(
+"https://hwpeegcsdgxgcybuosfv.supabase.co",
+"sb_publishable_LhuHoUS_DR4o2Pp3aqbNBw_IXwHo2fD"
+)
+
+loadRFQ()
+loadSuppliers()
+
+
+async function loadRFQ(){
+
+const { data } = await supabaseClient
+.from("rfq")
+.select("*")
+
+const table = document.querySelector("#rfqTable tbody")
+
+data.forEach(rfq => {
+
+const row = document.createElement("tr")
+
+row.innerHTML = `
+<td>${rfq.company}</td>
+<td>${rfq.email}</td>
+<td>${rfq.material}</td>
+<td>${rfq.quantity}</td>
+<td>${rfq.drawing_url || ""}</td>
+`
+
+table.appendChild(row)
+
+})
+
+}
+
+
+async function loadSuppliers(){
+
+const { data } = await supabaseClient
+.from("suppliers")
+.select("*")
+
+const table = document.querySelector("#supplierTable tbody")
+
+data.forEach(supplier => {
+
+const row = document.createElement("tr")
+
+row.innerHTML = `
+<td>${supplier.company}</td>
+<td>${supplier.email}</td>
+<td>${supplier.machines}</td>
+<td>${supplier.materials}</td>
+<td>${supplier.certificates}</td>
+`
+
+table.appendChild(row)
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
