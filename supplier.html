@@ -22,6 +22,30 @@
 
 <h1>Become a Supplier</h1>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Become a Supplier | QualityPartsMarket</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+<img src="logo1.png" class="logo" alt="QualityPartsMarket logo">
+</header>
+
+<div class="container">
+
+<h1>Become a Supplier</h1>
+
 <form action="https://formsubmit.co/rene.herrchen@gmail.com" method="POST">
 
 <label>Company Name</label>
@@ -44,6 +68,83 @@
 <input type="hidden" name="_captcha" value="false">
 
 </form>
+
+</div>
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-col">
+<h3>QualityPartsMarket</h3>
+<p>European Manufacturing Network for precision parts production.</p>
+</div>
+
+<div class="footer-col">
+<h4>Platform</h4>
+<a href="rfq.html">Request a Quote</a>
+<a href="supplier.html">Become a Supplier</a>
+</div>
+
+<div class="footer-col">
+<h4>Company</h4>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<div class="footer-col">
+<h4>Legal</h4>
+<a href="legal.html">Legal Notice</a>
+<a href="privacy.html">Privacy Policy</a>
+</div>
+
+</div>
+
+<p class="footer-bottom">
+© 2026 QualityPartsMarket – René Herrchen – Switzerland
+</p>
+
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const supabaseClient = supabase.createClient(
+"https://hwpeegcsdgxgcybuosfv.supabase.co",
+"sb_publishable_LhuHoUS_DR4o2Pp3aqbNBw_IXwHo2fD"
+)
+
+document.getElementById("supplierForm").addEventListener("submit", async (e)=>{
+
+e.preventDefault()
+
+const { data, error } = await supabaseClient
+.from("suppliers")
+.insert([{
+
+company: document.getElementById("company").value,
+email: document.getElementById("email").value,
+machines: document.getElementById("machines").value,
+materials: document.getElementById("materials").value,
+certificates: document.getElementById("certificates").value
+
+}])
+
+if(error){
+
+alert("Registration failed")
+
+}else{
+
+alert("Supplier registration submitted")
+
+}
+
+})
+
+</script>
+</body>
+</html>
+
 
 </div>
 <footer class="footer">
