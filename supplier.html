@@ -41,7 +41,8 @@
 
 </form>
 
-  <button onclick="window.location.href='supplier-rfqs.html'">
+  <button id="rfqButton" style="display:none"
+onclick="window.location.href='supplier-rfqs.html'">
 View Available RFQs
 </button>
 
@@ -116,6 +117,8 @@ alert("Registration failed")
 }else{
 
 alert("Supplier registration submitted")
+
+document.getElementById("rfqButton").style.display="block"
 
 }
 
