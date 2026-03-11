@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Available RFQs</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f8;
+margin:40px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+th{
+background:#2c3e50;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Available RFQs</h1>
+
+<table id="rfqTable">
+
+<thead>
+<tr>
+<th>Company</th>
+<th>Material</th>
+<th>Quantity</th>
+<th>Drawing</th>
+<th>Contact Buyer</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const { createClient } = supabase
+
+const supabaseClient = createClient(
+"https://hwpeegcsdgxgcybuosfv.supabase.co",
+"sb_publishable_LhuHoUS_DR4o2Pp3aqbNBw_IXwHo2fD"
+)
+
+loadRFQ()
+
+async function loadRFQ(){
+
+const { data } = await supabaseClient
+.from("rfq")
+.select("*")
+.eq("status","open")
+
+const table = document.querySelector("#rfqTable tbody")
+table.innerHTML=""
+
+data.forEach(rfq=>{
+
+const row=document.createElement("tr")
+
+row.innerHTML=`
+<td>${rfq.company}</td>
+<td>${rfq.material}</td>
+<td>${rfq.quantity}</td>
+<td>${rfq.drawing_url ? `<a href="${rfq.drawing_url}" target="_blank">Download</a>` : ""}</td>
+<td><a href="mailto:${rfq.email}">Send Quote</a></td>
+`
+
+table.appendChild(row)
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
