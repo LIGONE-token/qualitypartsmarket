@@ -116,7 +116,7 @@ row.innerHTML = `
 <td>${rfq.email}</td>
 <td>${rfq.material}</td>
 <td>${rfq.quantity}</td>
-<td>${rfq.drawing_url || ""}</td>
+<td><a href="${rfq.drawing_url}" target="_blank">Download</a></td>
 `
 
 table.appendChild(row)
