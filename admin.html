@@ -57,6 +57,8 @@ color:white;
 <th>Material</th>
 <th>Quantity</th>
 <th>Drawing</th>
+<th>Status</th>
+<th>Update</th>
 </tr>
 </thead>
 
@@ -119,6 +121,18 @@ row.innerHTML = `
 <td>${rfq.material}</td>
 <td>${rfq.quantity}</td>
 <td>${rfq.drawing_url ? `<a href="${rfq.drawing_url}" target="_blank">Download</a>` : ""}</td>
+
+<td>${rfq.status || "open"}</td>
+
+<td>
+<select onchange="updateStatus('${rfq.id}', this.value)">
+<option value="open">Open</option>
+<option value="sent">Sent to suppliers</option>
+<option value="quoted">Quoted</option>
+<option value="closed">Closed</option>
+</select>
+</td>
+`
 `
 
 table.appendChild(row)
