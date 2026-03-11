@@ -133,7 +133,6 @@ row.innerHTML = `
 </select>
 </td>
 `
-`
 
 table.appendChild(row)
 
@@ -169,6 +168,16 @@ row.innerHTML = `
 table.appendChild(row)
 
 })
+
+}
+async function updateStatus(id,status){
+
+await supabaseClient
+.from("rfq")
+.update({status:status})
+.eq("id",id)
+
+alert("Status updated")
 
 }
 
