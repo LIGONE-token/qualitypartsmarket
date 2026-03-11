@@ -59,6 +59,7 @@ color:white;
 <th>Drawing</th>
 <th>Status</th>
 <th>Update</th>
+<th>Matching Suppliers</th>
 </tr>
 </thead>
 
@@ -103,17 +104,28 @@ loadSuppliers()
 
 async function loadRFQ(){
 
-const { data } = await supabaseClient
+const { data: rfqs } = await supabaseClient
 .from("rfq")
 .select("*")
 .order("created_at",{ascending:false})
 
+const { data: suppliers } = await supabaseClient
+.from("suppliers")
+.select("*")
+
 const table = document.querySelector("#rfqTable tbody")
 table.innerHTML = ""
 
-data.forEach(rfq => {
+rfqs.forEach(rfq => {
 
 const row = document.createElement("tr")
+
+let matches = suppliers.filter(s =>
+s.materials &&
+s.materials.toLowerCase().includes((rfq.material || "").toLowerCase())
+)
+
+let supplierList = matches.map(s => s.company).join(", ")
 
 row.innerHTML = `
 <td>${rfq.company}</td>
@@ -132,6 +144,8 @@ row.innerHTML = `
 <option value="closed">Closed</option>
 </select>
 </td>
+
+<td>${supplierList || "No match"}</td>
 `
 
 table.appendChild(row)
