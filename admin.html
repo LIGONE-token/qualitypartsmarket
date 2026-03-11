@@ -128,22 +128,26 @@ table.appendChild(row)
 
 async function loadSuppliers(){
 
-const { data } = await supabaseClient
+const { data, error } = await supabaseClient
 .from("suppliers")
 .select("*")
 
+console.log(data)
+
 const table = document.querySelector("#supplierTable tbody")
+
+table.innerHTML = ""
 
 data.forEach(supplier => {
 
 const row = document.createElement("tr")
 
 row.innerHTML = `
-<td>${supplier.company}</td>
-<td>${supplier.email}</td>
-<td>${supplier.machines}</td>
-<td>${supplier.materials}</td>
-<td>${supplier.certificates}</td>
+<td>${supplier.company || ""}</td>
+<td>${supplier.email || ""}</td>
+<td>${supplier.machines || ""}</td>
+<td>${supplier.materials || ""}</td>
+<td>${supplier.certificates || ""}</td>
 `
 
 table.appendChild(row)
