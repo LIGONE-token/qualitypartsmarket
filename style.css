@@ -215,9 +215,9 @@ position:relative;
 height:200px;
 width:auto;
 position:absolute;
-top:55%;
-left:10px;
-transform:translateY(-48%);
+top:56%;
+left:20px;
+transform:translateY(-47%);
 }
 
 .hero{
