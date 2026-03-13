@@ -208,11 +208,18 @@ height:70px;
 padding:0 20px;
 display:flex;
 align-items:center;
+position:relative;
 }
 
 .logo{
 height:200px;
 width:auto;
+position:absolute;
+top:54%;
+left:10px;
+transform:translateY(-50%);
+}
+
 }
 
 .hero{
