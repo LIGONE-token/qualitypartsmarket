@@ -235,17 +235,16 @@ font-size:28px;
 line-height:1.35;
 }
 
-.buttons{
+.hero .buttons{
 flex-direction:column;
 gap:12px;
-align-items:stretch;
+align-items:center;
 }
 
-.btn-main,
-.btn-alt{
-width:100%;
-max-width:100%;
-box-sizing:border-box;
+.hero .btn-main,
+.hero .btn-alt{
+width:auto;
+max-width:260px;
 text-align:center;
 }
 
